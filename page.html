@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title id="alltitle">L.Z Game</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script type="text/javascript" src="Javascript/google.js"></script>
+	<script type="text/javascript" src="Javascript/music.js"></script>
+	<script type="text/javascript" src="Javascript/game.js"></script>
+	<script type="text/javascript" src="LRC/一路向北.js"></script>
+
+	<h1 onclick="baidu_zhidao()">别踩白块！！！</h1>
+</head>
+
+
+<body>
+	<img id="conan" src="img/conan.jpg" width=1900 height=1050 >
+
+	<div id="All_Game">
+
+		<div id="Game_Block">
+			<img id="start_log" src="img/别踩白块.jpg" width=400 height=400 onclick="start_alert()">
+
+		</div>
+
+		<p>	
+			<rowspan id="timeText">总用时: 0分0秒</rowspan>
+            <rowspan id="Score">Score: </rowspan>
+		</p>
+
+		<div id="Button">
+			<button id="Start_1" onclick="start()">Start</button>
+			<button id="Restart_1">Restart</button>
+		</div>
+	</div>
+
+
+	<div id="Music">
+		<h2 id="music_title" onclick="search_music_title()">一路向北</h2>
+		<div id="Music_main">
+				<audio id="music_box" src="music/一路向北.mp3" width=300 height=80    controls="controls"  ></audio>
+		</div>
+
+	</div>
+	<div id="change_music">
+		<input id="change_music_1" onkeydown="if(event.keyCode==13) {change_music()}" type="text"  placeholder="Input name here." required />
+		<button id="change_button" type="submit" onclick="change_music()">Music!~</button>
+		<button id="random_button" type="submit" onclick="change_music_auto()">Random</button>
+		<button id="one_circulation" type="submit" onclick="one_circulation_f()">单曲模式</button>
+		<button id="search_button" type="submit" onclick="search_music()">Search</button>
+	</div>
+
+
+
+	<div id="Google">
+		<h2 id="title_b_g" onclick="OpenGoogle()"><span id="span_g_1">G</span><span id="span_g_2">o</span><span id="span_g_3">o</span><span id="span_g_4">g</span><span id="span_g_5">l</span><span id="span_g_6">e</span></h2>
+		<!--<div><textarea rows="1" cols="20"> Please enter you content</textarea></div>-->
+		<input id="googleinput" onkeydown="if(event.keyCode==13) {Google()}" type="text"  placeholder="Google here." required  />
+		<button id="button_b_g" type="submit" onclick="Google()">Google!</button>
+
+	</div>
+
+	<div id="sel_G_B">
+		<li><a id="main_b_g" href="http://www.baidu.com/">Baidu and Google</a> 
+		    <ul> 
+		    <li><div><a href="#"><img onclick="change_to_baidu()" src="img/baidu.png" width="80" height="32"></a></div></li> 
+		    <li><div><a href="#"><img onclick="change_to_google()" src="img/google.png" width="80" height="38"></a></div></li> 
+		    </ul> 
+		</li>
+	</div>
+
+	<div id="hyperlink">
+
+		<button id="H_1" type="submit" onclick="H_Google()">Google!</button>
+		<button id="H_2" type="submit" onclick="H_Baidu()">Baidu!</button>
+		<button id="H_3" type="submit" onclick="H_Ceek()">Ceek!</button>
+
+		<button id="H_4" type="submit" onclick="H_Wiki()">维基百科!</button>
+		<button id="H_5" type="submit" onclick="H_Zhihu()">知乎!</button>
+		<button id="H_6" type="submit" onclick="H_Jianshu()">简书!</button>
+
+		<button id="H_7" type="submit" onclick="H_Fanyi()">百度翻译!</button>
+		<button id="H_8" type="submit" onclick="H_Xueshu()">谷歌学术!</button>
+		<button id="H_9" type="submit" onclick="H_Bilibili()">B站(゜-゜)つロ 干杯!</button>
+
+
+	</div>
+
+	<div id="else_game" >
+		
+	</div>
+
+
+	<div id="lrc_box" >
+		
+
+		<img id="lrc_box_img" src="img/一路向北.jpg" width="450" height="350">
+		<img id="lrc_box_back" src="img/光盘.jpg" width="450" height="350" >
+		<!--style="background:url(img/一路向北.jpg) no-repeat left top  "-->
+	</div>
+
+
+</body>
+</html>
+
+
+
+<!--<div id="nav">
+			<li><a href="#">DIV+CSS技巧</a> 
+		    <ul> 
+		    <li><a href="#">技巧四</a></li> 
+		    <li><a href="#">技巧四</a></li> 
+		    <li><a href="#">技巧四</a></li> 
+		    <li><a href="#">技巧四111</a></li> 
+		    </ul> 
+			</li> 
+		</div>-->
