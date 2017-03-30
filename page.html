@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<title id="alltitle">L.Z Game</title>
+
+	<title id="alltitle">L.Z's Home Page</title>
+	<link id="ico_1" href="中国.ico" type="image/x-icon" />
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css.css">
+	<link rel="stylesheet" type="text/css" href="CSS/css.css">
+	<link rel="stylesheet" type="text/css" href="CSS/ptyx.css">
 	<script type="text/javascript" src="Javascript/google.js"></script>
 	<script type="text/javascript" src="Javascript/music.js"></script>
 	<script type="text/javascript" src="Javascript/game.js"></script>
+	<script type="text/javascript" src="Javascript/game.ptyx.js"></script>
 	<script type="text/javascript" src="LRC/一路向北.js"></script>
+	<script type="text/javascript" src="LRC/ハレ晴レユカイ.js"></script>
 
-	<h1 onclick="baidu_zhidao()">别踩白块！！！</h1>
+	<h1 id="biecaibaikuai_title" onclick="baidu_zhidao()">别踩白块！！！</h1>
 </head>
 
 
 <body>
-	<img id="conan" src="img/conan.jpg" width=1900 height=1050 >
 
-	<div id="All_Game">
+	<button id="Me" onclick="Me_Me()">About Me~~</button>
 
-		<div id="Game_Block">
-			<img id="start_log" src="img/别踩白块.jpg" width=400 height=400 onclick="start_alert()">
+	<div id="ALL">
+		<div id="GAME">
+			<div id="move_1" onclick="move(1)">1</div>
+			<div id="move_2" onclick="move(2)">2</div>
+			<div id="move_3" onclick="move(3)">3</div>
+			<div id="move_4" onclick="move(4)">4</div>
+			<div id="move_5" onclick="move(5)">5</div>
+			<div id="move_6" onclick="move(6)">6</div>
+			<div id="move_7" onclick="move(7)">7</div>
+			<div id="move_8" onclick="move(8)">8</div>
 
 		</div>
 
+		<div id="Time">	
+			<p>	
+				<rowspan id="timeText_pt">总用时: 0分0秒</rowspan>
+	            <rowspan id="timer_pt"></rowspan>
+			</p>
+			<p>
+				<rowspan onclick="start_pt()" id="start_pt">开始</rowspan>
+				<rowspan onclick="restart_pt()" id="restart_pt">重来</rowspan>
+			</p>
+		</div>
+
+	</div>
+
+
+	
+
+	<div id="All_Game">
+
+		<div id="Game_Block" onclick="game_over_sel_block()">
+			<img id="start_log" src="img/别踩白块.jpg" width=400 height=400 onclick="start_alert()">
+			<div id="game_block_div" ></div>
+		</div>
+
+
 		<p>	
 			<rowspan id="timeText">总用时: 0分0秒</rowspan>
-            <rowspan id="Score">Score: </rowspan>
+            <rowspan id="Score">Score: 0</rowspan>
+            <p id="speed_sel_text">Speed Level: 1</p>
+            <button id="speed_sel_button" onclick="speed_selet()">Speed</button>
 		</p>
 
 		<div id="Button">
 			<button id="Start_1" onclick="start()">Start</button>
-			<button id="Restart_1">Restart</button>
+			<button id="Restart_1" type="submit" onclick="restart()">Restart</button>
+			<button id="Stop_Game_block" type="submit" onclick="game_over_button()">Over Game</button>
 		</div>
 	</div>
+
+	<button id="change_game" type="submit" onclick="change_game()">Change Game~</button>
 
 
 	<div id="Music">
@@ -42,13 +83,25 @@
 		</div>
 
 	</div>
+
+	<div id="lrc_box" >
+		
+
+		<img id="lrc_box_img" src="img/一路向北.jpg" width="450" height="350">
+		<img id="lrc_box_back" src="img/光盘.jpg" width="450" height="350" >
+		<!--style="background:url(img/一路向北.jpg) no-repeat left top  "-->
+	</div>
+
 	<div id="change_music">
 		<input id="change_music_1" onkeydown="if(event.keyCode==13) {change_music()}" type="text"  placeholder="Input name here." required />
 		<button id="change_button" type="submit" onclick="change_music()">Music!~</button>
 		<button id="random_button" type="submit" onclick="change_music_auto()">Random</button>
 		<button id="one_circulation" type="submit" onclick="one_circulation_f()">单曲模式</button>
 		<button id="search_button" type="submit" onclick="search_music()">Search</button>
+		<button id="lock_button" type="submit" onclick="Lock()">Open</button>
+		<button id="hello_button" type="submit" onclick="hello()">NHM</button>
 	</div>
+
 
 
 
@@ -63,8 +116,8 @@
 	<div id="sel_G_B">
 		<li><a id="main_b_g" href="http://www.baidu.com/">Baidu and Google</a> 
 		    <ul> 
-		    <li><div><a href="#"><img onclick="change_to_baidu()" src="img/baidu.png" width="80" height="32"></a></div></li> 
-		    <li><div><a href="#"><img onclick="change_to_google()" src="img/google.png" width="80" height="38"></a></div></li> 
+		    <li><div><a href="#"><img onclick="change_to_baidu()" src="img/baidu.png" width="100" height="38"></a></div></li> 
+		    <li><div><a href="#"><img onclick="change_to_google()" src="img/google.png" width="100" height="38"></a></div></li> 
 		    </ul> 
 		</li>
 	</div>
@@ -81,23 +134,29 @@
 
 		<button id="H_7" type="submit" onclick="H_Fanyi()">百度翻译!</button>
 		<button id="H_8" type="submit" onclick="H_Xueshu()">谷歌学术!</button>
-		<button id="H_9" type="submit" onclick="H_Bilibili()">B站(゜-゜)つロ 干杯!</button>
+		<button id="H_9" type="submit" onclick="H_Bilibili()">(゜-゜)つロ 干杯!</button>
 
+		<button id="H_10" type="submit" onclick="H_Haruhi()">SOS~</button>
 
 	</div>
 
-	<div id="else_game" >
-		
+	<div id="calendar" onclick="open_time()">
+		<h2>公历</h2>
+		<div id="the_Gregorian_calendar"> 
+			<p id="Get_date_year"></p>
+			<p id="Get_date_month"></p>
+			<p id="Get_date_date"></p>
+			<p id="Get_date_week"></p>
+			<p id="Get_date_hour"></p>
+			<p id="Get_date_minute"></p>
+			<p id="Get_date_second"></p>
+			<P id="Get_date_all"></P>
+
+		</div>	
 	</div>
 
 
-	<div id="lrc_box" >
-		
-
-		<img id="lrc_box_img" src="img/一路向北.jpg" width="450" height="350">
-		<img id="lrc_box_back" src="img/光盘.jpg" width="450" height="350" >
-		<!--style="background:url(img/一路向北.jpg) no-repeat left top  "-->
-	</div>
+	
 
 
 </body>
